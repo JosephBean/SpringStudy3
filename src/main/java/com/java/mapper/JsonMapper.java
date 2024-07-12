@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.java.dto.FileDTO;
 
@@ -13,7 +14,10 @@ public interface JsonMapper {
 	@Select("select #{no} as no")
 	public int test(int no);
 	
-	@Select("SELECT * FROM files WHERE type = ${type}")
+	@Select("SELECT * FROM files WHERE type = ${type} AND del = 0")
 	public List<FileDTO> findByType(int type);
+	
+	@Update("UPDATE files SET del = 1 WHERE no = ${no}")
+	public int delete(int no);
 	
 }
