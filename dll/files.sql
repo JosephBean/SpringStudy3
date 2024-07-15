@@ -5,7 +5,9 @@ CREATE OR REPLACE TABLE files
 	`no` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`type` INT NOT NULL,
 	`domain` VARCHAR(50) NOT NULL,
-	`path` VARCHAR(100) NOT NULL
+	`path` VARCHAR(100) NOT NULL,
+	`del` BOOLEAN DEFAULT (0),
+	`cnt` INT DEFAULT (0)
 );
 
 INSERT INTO files (`type`, `domain`, `path`) VALUE (1, 'https://cdn.pixabay.com', '/photo/2023/06/14/06/22/cat-8062388_1280.jpg');
@@ -21,3 +23,4 @@ INSERT INTO files (`type`, `domain`, `path`) VALUE (4, 'https://cdn.pixabay.com'
 COMMIT;
 
 SELECT * FROM files;
+

@@ -68,7 +68,7 @@ public class JsonController {
 		jsonDTO.setStatus(false);
 		
 		log.info("NO : {}, type: {}", no, type);
-		if(jsonMapper.delete(no) == 1) {
+		if(jsonMapper.cnt(no) == 1) {
 			List<FileDTO> list = jsonMapper.findByType(type);
 			//if(list.size() > 0) {
 				jsonDTO.setResult(list);

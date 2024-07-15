@@ -20,4 +20,7 @@ public interface JsonMapper {
 	@Update("UPDATE files SET del = 1 WHERE no = ${no}")
 	public int delete(int no);
 	
+	@Update("UPDATE files SET cnt = cnt + 1 WHERE no = ${no}")
+	public int cnt(int no);
+	
 }
